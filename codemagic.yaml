@@ -1,8 +1,0 @@
-
-workflows:
-  android-workflow:
-    name: Radar V7 FINAL
-    scripts:
-      - ./gradlew assembleDebug
-    artifacts:
-      - app/build/outputs/**/*.apk
