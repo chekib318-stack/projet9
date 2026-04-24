@@ -1,9 +1,27 @@
-
 workflows:
   android-workflow:
-    name: Radar FINAL
+    name: Radar FINAL AUTO FIX
+
+    environment:
+      java: 17
+
     scripts:
-      - chmod +x gradlew || true
-      - ./gradlew assembleDebug
+      - name: Install Gradle
+        script: |
+          wget https://services.gradle.org/distributions/gradle-8.2-bin.zip
+          unzip -q gradle-8.2-bin.zip
+
+      - name: Generate Wrapper
+        script: |
+          ./gradle-8.2/bin/gradle wrapper
+
+      - name: Fix Permission
+        script: chmod +x gradlew
+
+      - name: Build APK
+        script: |
+          ./gradlew clean
+          ./gradlew assembleDebug
+
     artifacts:
       - app/build/outputs/**/*.apk
