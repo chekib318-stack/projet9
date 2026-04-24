@@ -1,0 +1,24 @@
+
+plugins { id 'com.android.application' }
+
+android {
+ namespace 'com.example.radar'
+ compileSdk 34
+
+ defaultConfig {
+  applicationId "com.example.radar"
+  minSdk 26
+  targetSdk 34
+  versionCode 1
+  versionName "1.0"
+ }
+
+ buildFeatures { compose true }
+ composeOptions { kotlinCompilerExtensionVersion '1.5.0' }
+}
+
+dependencies {
+ implementation "androidx.activity:activity-compose:1.8.0"
+ implementation "androidx.compose.ui:ui:1.5.0"
+ implementation "androidx.compose.material:material:1.5.0"
+}
